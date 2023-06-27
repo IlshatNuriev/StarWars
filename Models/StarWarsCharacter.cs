@@ -33,13 +33,12 @@ namespace StarWars.Models
         public string Description { get; set; }
         [NotMapped]
         public Movie? Movie { get; set; }
+        
         [NotMapped]
         public ICollection<Movie> Movies { get; set; } = new List<Movie>();
 
 
         
-
-
         public StarWarsCharacter(string name, string originalName, int birthYear, string originPlanet, Gender gener, string race, 
             double height, string hairColor, string eyeColor, string description, List<Movie> movies) 
         {

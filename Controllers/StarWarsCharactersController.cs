@@ -10,6 +10,7 @@ using Microsoft.Extensions.Options;
 using StarWars.Data;
 using StarWars.Models;
 using StarWars.SeedData;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace StarWars.Controllers
 {
@@ -26,13 +27,38 @@ namespace StarWars.Controllers
 
         // GET: api/StarWarsCharacters
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<StarWarsCharacter>>> GetStarWarsCharacter()
+        public async Task<ActionResult<IEnumerable<StarWarsCharacter>>> GetStarWarsCharacter(int? movieId)
         {
+                        
             if (_context.StarWarsCharacters == null)
             {
                 return NotFound();
             }
-            return await _context.StarWarsCharacters.Include(m => m.Movies).ToListAsync();
+
+            if (movieId != null && movieId != 0) 
+            {
+                List<StarWarsCharacter> filtredCharacters = new();
+                foreach (var  character in await _context.StarWarsCharacters.Include(m => m.Movies).ToListAsync())
+                {
+                    
+                    List<Movie> movies = (List<Movie>)character.Movies;
+                    for(int i = 0; i < movies.Count; i++)
+                    {
+                        if(movieId == movies[i].Id)
+                        {
+                            filtredCharacters.Add(character);
+                            break;
+                        }
+                    }
+                }
+
+                return filtredCharacters;
+            }
+            else
+            {
+                return await _context.StarWarsCharacters.Include(m => m.Movies).ToListAsync();
+            }
+
         }
 
         // GET: api/StarWarsCharacters/5
