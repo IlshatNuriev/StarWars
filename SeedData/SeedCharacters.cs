@@ -24,22 +24,7 @@ namespace StarWars.SeedData
                 else
                 {
                     var movies = context.Movies.ToList();
-                     //new List<Movie>()
-                   // {
-                   //     new Movie() { Id = 0, Name = "Star Wars: Episode 1 - The Phantom Menace (1999)"},
-                   //     new Movie() { Id = 1, Name = "Star Wars: Episode 2 - Attack of the Clones (2002)"},
-                   //     new Movie() { Id = 2, Name = "Star Wars: Episode 3 – Revenge of the Sith (2005)"},
-                   //     new Movie() { Id = 3, Name = "Star Wars: Episode 4 - A New Hope (1977)" },
-                   //     new Movie() { Id = 4, Name = "Star Wars: Episode 5 - The Empire Strikes Back (1980)"},
-                   //     new Movie() { Id = 5, Name = "Star Wars: Episode 6 - Return of the Jedi (1983)"},
-                   //     new Movie() { Id = 6, Name = "Star Wars: Episode 7 - The Force Awakens (2015)"},
-                   //     new Movie() { Id = 7, Name = "Star Wars: Episode 8 - The Last Jedi (2017)"},
-                   //     new Movie() { Id = 8, Name = "Star Wars: Episode 9 - The Rise of Skywalker (2019)"},
-                   //     new Movie() { Id = 9, Name = "Star Wars: The Clone Wars (2008)"},
-                   //     new Movie() { Id = 10, Name = "Rogue One: A Star Wars Story (2016)"},
-                   //     new Movie() { Id = 11, Name = "Solo: A Star Wars Story (2018)"}
-                   //};
-
+                     
                     var id = new List<int>() { 1, 3, 5, 6, 7, 8, 9 };
                     
 

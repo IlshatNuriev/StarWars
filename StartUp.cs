@@ -35,9 +35,6 @@ namespace StarWars
             });
 
 
-
-            //services.AddScoped<ISortByNameOrStartDate, SortByNameOrStartDate>();
-
             using (var context = services.BuildServiceProvider())
             {
                 var scope = context.CreateScope().ServiceProvider;
